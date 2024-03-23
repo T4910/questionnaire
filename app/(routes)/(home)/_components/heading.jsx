@@ -1,7 +1,7 @@
-const heading = () => {
+const heading = ({ question }) => {
   return (
-    <div>
-        <h1  className="text-3xl font-semibold">What kind of work do you do?</h1>
+    <div className="flex-grow grid place-items-baseline mt-4 mb-3">
+        <h1 className="text-3xl font-medium w-[46rem] my-auto">{question}</h1>
     </div>
   )
 }

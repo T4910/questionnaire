@@ -1,7 +1,10 @@
 const sliderIndicator = () => {
   return (
-    <div>
+    <div className="grid items-center">
+      <div>
+
         ...
+      </div>
     </div>
   )
 }

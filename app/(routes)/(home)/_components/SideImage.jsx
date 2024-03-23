@@ -1,8 +1,12 @@
-const images = ['/placeholder.jpeg']
+const images = [
+  '/placeholder.jpeg',
+  '/handshake.jpeg',
+  '/manlookingatcomputer.jpeg'
+]
 
 
 const imageStyles = {
-    backgroundImage: `url(${images[0]})`,
+    backgroundImage: `url(${images[2]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 }
