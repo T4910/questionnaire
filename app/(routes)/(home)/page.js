@@ -18,6 +18,7 @@ import Questionnaire from "@/app/(routes)/(home)/_components/questionnaire";
 import SideImage from "@/app/(routes)/(home)/_components/SideImage";
 
 export default function Home() {
+  // fetch intial and to-come questions orderly per section
   const questions = [
     {
       question: 'What are the most time-consuming tasks in your daily routine that you believe could be automated through an app?',
@@ -157,13 +158,16 @@ export default function Home() {
     },
   ]
 
-  // temporal logic to replace db
-  let numberOfSections = new Set(questions.map((data) => data.section.number)).size;
+  // temporal logics to replace db
+  // Must fetch all the sections (no pagination)
+  let sections = questions.map(({section}, index) => {
+    return {...section, index};
+  });
 
   return (
     <div className="flex size-full h-screen bg-red-400">
       <SideImage />
-      <Questionnaire questions={questions} numberOfSections={numberOfSections}/>
+      <Questionnaire questions={questions} sections={sections}/>
     </div>
   );
 }

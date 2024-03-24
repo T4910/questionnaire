@@ -3,8 +3,8 @@ import { useContext } from "react"
 import { NumberContext } from "@/app/(routes)/(home)/_components/questionsController"
 import { Button } from "@/components/ui/button"
 
-const controls = ({ numOfQuestions }) => {
-    const { number, setNumber } = useContext(NumberContext);
+const controls = () => {
+    const { number, questions, setNumber } = useContext(NumberContext);
 
     const Back = () => {
       return (
@@ -23,7 +23,7 @@ const controls = ({ numOfQuestions }) => {
       return (
         <Button 
           onClick={() => setNumber((num) => num+1)}
-          disabled={(number+1 === numOfQuestions)}
+          disabled={(number+1 === questions.length)}
           className="py-1 bg-neutral-700 text-white rounded-sm"
         >
           Continue
@@ -45,7 +45,7 @@ const controls = ({ numOfQuestions }) => {
     return (
       <div className="flex justify-end space-x-5">
           {(number > 0) ? <Back /> : null}
-          {(number+1 < numOfQuestions) ? <Continue /> : <Submit />}
+          {(number+1 < questions.length) ? <Continue /> : <Submit />}
       </div>
     )
 }

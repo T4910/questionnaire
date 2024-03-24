@@ -5,8 +5,8 @@ import Options from "@/app/(routes)/(home)/_components/options"
 import Indicator from "@/app/(routes)/(home)/_components/indicator"
 import Heading from "@/app/(routes)/(home)/_components/heading"
 
-const questions = ({ questions }) => {
-  const { number, displayedOpts } = useContext(NumberContext)
+const questions = () => {
+  const { number, questions, displayedOpts } = useContext(NumberContext)
   const questionsList = questions.map(data => data.question);
   const optionsList = questions.map(data => data.options);
 
