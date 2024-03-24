@@ -8,7 +8,7 @@
 // image for desktop
 // textarea for users to specify answer.
 
-// admin page for adding or removing answers to questions
+// admin page for adding or removing options to questions
 // csv downloader from database
 
 // UI for mobile version
@@ -21,109 +21,149 @@ export default function Home() {
   const questions = [
     {
       question: 'What are the most time-consuming tasks in your daily routine that you believe could be automated through an app?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
+      options: [
+          {number:1, value: 'Information with easy access to information'},
+          {number:2, value: 'Integration with television channels for shows'},
+          {number:3, value: 'Most likely'},
+          {number:4, value: 'guides and tutorials'},
+          {number:5, value: 'Integration with communication channels for seamless interactions'},
+          {number:6, value: 'Providing personalized property recommendations to clients'},
+          {number:7, value: 'Not yet, but considering'},
       ],
-      section: 1
+      section: {
+        number: 1,
+        name: 'General requirements'
+      }
     },
     {
     question: 'What do you do?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
-        'Disturbance excuses',
+      options: [
+        {number:1, value: 'Integration with property databases for easy access to information'},
+        {number:2, value: 'Integration with communication channels for seamless interactions'},
+        {number:3, value: 'Not likely at all'},
+        {number:4, value: 'Comprehensive user guides and tutorials'},
+        {number:5, value: 'Integration with co for seamless interactions'},
+        {number:6, value: 'Providing personalized property recommendations to clients'},
       ],
-      section: 1
+      section: {
+        number: 1,
+        name: 'General requirements'
+      }
     },
     {
       question: 'Have you used any real estate apps or platforms to assist with your daily tasks?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
+      options: [
+        {number:1, value: 'databases for easy access to information'},
+        {number:2, value: 'munication channels for seamless interactions'},
+        {number:3, value: 'Not likely at all'},
+        {number:4, value: 'Comprehensive user guides and tutorials'},
+        {number:5, value: 'Integration with communication channels for seamless interactions'},
+        {number:6, value: 'Providing personalized property recommendations to clients'},
+        {number:7, value: 'Not yet, but considering'},
+        {number:8, value: 'Not yet, but ering I thingsddsd'}
       ],
-      section: 1
+      section: {
+        number: 1,
+        name: 'General requirements'
+      }
     },
     {
-      question: 'What are the most time-consuming tasks in your daily routine that you believe could be automated through an app?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
+      question: 'What are the least tasks in your weekly life?',
+      options: [
+          {number:1, value: 'Integration with property databases for easy access to information'},
+          {number:2, value: 'Integration with communication channels for seamless interactions'},
+          {number:3, value: 'Not likely at al like biscutiel'},
+          {number:4, value: 'Comprehensive user  tutorials'},
       ],
-      section: 2
+      section: {
+        number: 2,
+        name: 'App requirements'
+      }
     },
     {
-    question: 'What do you do?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
-        'Disturbance excuses',
+    question: 'What do you do with your dogs and cats?',
+      options: [
+          {number:1, value: 'Integration with property databases for easy access to information'},
+          {number:2, value: 'Integration with communication channels for seamless interactions'},
+          {number:3, value: 'Not likely at all'},
+          {number:4, value: 'Comprehensive user guides and tutorials'},
+          {number:5, value: 'Integration with commun interactions'},
       ],
-      section: 2
+      section: {
+        number: 2,
+        name: 'App requirements'
+      }
     },
     {
-      question: 'Have you used any real estate apps or platforms to assist with your daily tasks?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
+      question: 'Have you used any school apps or platforms to assist with internet in LMU?',
+      options: [
+        {number:1, value: 'Integration with property databases for easy access to information'},
+        {number:2, value: 'Integration hannels for seamless interactions'},
+        {number:3, value: 'Not likely at all'},
+        {number:4, value: 'Comprehensive user guides and tu vanillar is torials'},
+        {number:5, value: 'Integration with communication channels for seamless interactions'},
+        {number:6, value: 'Providing personalized property  recommendations to clients'},
+        {number:7, value: 'Not yet, but considering'},
       ],
-      section: 2
+      section: {
+        number: 2,
+        name: 'App requirements'
+      }
     },
     {
-      question: 'What are the most time-consuming tasks in your daily routine that you believe could be automated through an app?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
+      question: 'What is an app?',
+      options: [
+          {number:1, value: 'Integration with property databases for easy access to information'},
+          {number:2, value: 'Integration with communication channels for seamless interactions'},
+          {number:3, value: 'Not yet, but considering I thingsddsd'}
       ],
-      section: 3
+      section: {
+        number: 3,
+        name: 'AI requirements'
+      }
     },
     {
-    question: 'What do you do?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
-        'Appointment scheduling',
-        'Disturbance excuses',
+    question: 'Are you still here?',
+      options: [
+          {number:1, value: 'Integration with property databases for easy access to information'},
+          {number:2, value: 'Integration with communicjation channels for seamless interactions'},
+          {number:3, value: 'Not likely at all'},
+          {number:4, value: 'Comprehensive user guides jericho fell and tutorials'},
+          {number:5, value: 'Integration with communication channels for seamless interactions'},
+          {number:6, value: 'Providing personalized property recommendations to clients'},
+          {number:7, value: 'Not yet, but considering'},
       ],
-      section: 3
+      section: {
+        number: 3,
+        name: 'AI requirements'
+      }
     },
     {
-      question: 'Have you used any real estate apps or platforms to assist with your daily tasks?',
-      answers: [
-        'Lead generation',
-        'Client communication',
-        'Market analysis',
-        'Paperwork management',
+      question: 'Can you guess what this website is for?',
+      options: [
+        {number:1, value: 'Integration with property databases for easy access to information'},
+        {number:2, value: 'Integration with communication channels for seamless interactions'},
+        {number:3, value: 'Not likely at all bushy meat is bad for you'},
+        {number:4, value: 'Comprehensive user guides and tutorials'},
+        {number:5, value: 'Integration with communication channels for seamless interactions'},
+        {number:6, value: 'Providing personalized property recommendations to clients'},
+        {number:7, value: 'Not yet, but considering'},
+        {number:8, value: 'Not yet, but considering I thingsddsd'}
       ],
-      section: 3
+      section: {
+        number: 3,
+        name: 'AI requirements'
+      }
     },
   ]
 
+  // temporal logic to replace db
+  let numberOfSections = new Set(questions.map((data) => data.section.number)).size;
+
   return (
     <div className="flex size-full h-screen bg-red-400">
-      <Questionnaire questions={questions}/>
       <SideImage />
+      <Questionnaire questions={questions} numberOfSections={numberOfSections}/>
     </div>
   );
 }

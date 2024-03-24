@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-const indicator = ({ number, dotted, active }) => {
+const indicator = ({ number, dotted, active, increment }) => {
 
   return (
       <div className={cn("space-y-1", dotted ? null : 'mt-5')}>
@@ -11,11 +11,10 @@ const indicator = ({ number, dotted, active }) => {
                 className={cn(
                   'w-20 h-1 bg-neutral-400 rounded-sm',
                   dotted ? 'size-2 rounded-full' : null,
-                  (active-1 === index) ? 'bg-black' : null
+                  (increment ? index+1 <= active : index === active-1) ? 'bg-neutral-700' : null
                 )}></div>
             )}
         </div>
-        {dotted ? null : <span className="block text-xs">App requirements</span>}
       </div>
   )
 }
