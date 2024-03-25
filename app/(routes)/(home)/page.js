@@ -1,23 +1,64 @@
-// question heading
-// options component
-// |-> Slider for other options
-// |-> Styling for just 3 or less options
-// Back and forward button
+// *question heading
+// *options component
+// *|-> Slider for other options
+// *|-> Styling for just 3 or less options
+// *Back and forward button
+// *section indicator
+// *image for desktop
+// *textarea for users to specify answer.
 // pagination fetching of questions
-// section indicator
-// image for desktop
-// textarea for users to specify answer.
+// storing initial state in webiste link query
+// adding route state managment system
+// add cookie accept or reject component
+// add cookie managments to state system
 
-// admin page for adding or removing options to questions
-// csv downloader from database
+// ADMIN
+// |-> csv downloader from database
+// |-> Add a table filled with questions currently in db
+// |-> Add a ability to edit values in table
+// |-> Add a ability to add and delete quesiton
+// |-> (opt) edit the order in which quesitons appear
 
 // UI for mobile version
 // |-> vertical slider for options 
 
 import Questionnaire from "@/app/(routes)/(home)/_components/questionnaire";
 import SideImage from "@/app/(routes)/(home)/_components/SideImage";
+import { db } from "@/lib/db"
 
-export default function Home() {
+export default async function Home() {
+  let DBquestions, DBsections, sectionsName; 
+  
+  try {
+    DBquestions = await db.question.findMany({
+      include: {options: true, section: true},
+      take: 10
+    });
+  } catch (error) {
+    console.log(error)
+  }
+
+  try {
+    DBsections = await db.question.findMany({
+      select: { sectionId: true },
+    })
+  } catch (error) {
+    console.log(error)
+  }
+  
+  try {
+    sectionsName = await db.section.findMany({ 
+      select: { id: true, name: true } 
+    })
+  } catch (error) {
+    console.log(error)
+  }
+
+  const sections = {
+    names: sectionsName,
+    questions: DBsections
+  }
+
   // fetch intial and to-come questions orderly per section
   const questions = [
     {
@@ -156,18 +197,15 @@ export default function Home() {
         name: 'AI requirements'
       }
     },
-  ]
-
-  // temporal logics to replace db
-  // Must fetch all the sections (no pagination)
-  let sections = questions.map(({section}, index) => {
-    return {...section, index};
-  });
+  ];
 
   return (
     <div className="flex size-full h-screen bg-red-400">
       <SideImage />
-      <Questionnaire questions={questions} sections={sections}/>
+      <Questionnaire 
+        questions={DBquestions} 
+        sections={sections}
+      />
     </div>
   );
 }

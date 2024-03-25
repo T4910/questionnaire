@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Question models
+model Section {
+  id        Int       @id @default(autoincrement())
+  number    Int
+  name      String
+
+  questions Question[]
+}
+
+model Question {
+  id        Int      @id @default(autoincrement())
+  question  String
+  options   Option[]
+  section   Section  @relation(fields: [sectionId], references: [id])
+  sectionId Int
+
+  answer Answer[]
+}
+
+model Option {
+  id         Int      @id @default(autoincrement())
+  number     Int
+  value      String
+  question   Question @relation(fields: [questionId], references: [id])
+  questionId Int
+
+  answer Answer[]
+}
+
+
+// Answer models
+model Answer {
+  id         Int      @id @default(autoincrement())
+  questionId Int
+  optionId   Int?
+  customText String?  // For users to specify their own option if not satisfied
+
+  question   Question @relation(fields: [questionId], references: [id])
+  option     Option?  @relation(fields: [optionId], references: [id])
+}
+
+  // user       User     @relation(fields: [userId], references: [id])
+  // userId     Int

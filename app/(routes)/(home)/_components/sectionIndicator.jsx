@@ -5,16 +5,16 @@ import { NumberContext } from "@/app/(routes)/(home)/_components/questionsContro
 
 const sectionIndicator = ({ sections }) => {
   const { number } = useContext(NumberContext);
-  const activeSection = sections[number].number
-  const questionsPerSec = sections.filter(data => data.number === activeSection)
-  const currentQuestionInSec = questionsPerSec.findIndex(data => data.index === number)+1
-  const numberOfSections = new Set(sections.map((section) => section.number)).size
+
+  const activeSectionNumber = sections.questions[number].sectionId;
+  const activeSectionName = sections.names[sections.questions[number].sectionId-1].name;
+  const numberOfSections = sections.names.length;
 
   return (
     <>
-      <Indicator number={numberOfSections} active={activeSection} increment/>
+      <Indicator number={numberOfSections} active={activeSectionNumber} increment/>
       <div>
-        <span className="text-xs">{sections[number].name}: {currentQuestionInSec} of {questionsPerSec.length}</span>
+        <span className="text-xs">{activeSectionName}: {number+1} of {sections.questions.length}</span>
       </div>
     </>
   );
