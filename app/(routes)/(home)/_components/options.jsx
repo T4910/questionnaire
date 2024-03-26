@@ -3,19 +3,19 @@ import Option from "@/app/(routes)/(home)/_components/option"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { NumberContext } from "@/app/(routes)/(home)/_components/questionsController"
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 
 const options = ({ list }) => {
   const { number, displayedOpts, setDisplayedOpts } = useContext(NumberContext);
 
-  useEffect(() => setDisplayedOpts(list[number].slice(0,4)), [number]);
+  useEffect(() => setDisplayedOpts(list.slice(0,4)), [number]);
 
   function prevOptions(){
-    setDisplayedOpts(() => list[number].slice(0,4))
+    setDisplayedOpts(() => list.slice(0,4))
   }
   
   function nextOptions(){
-    setDisplayedOpts((array) => list[number].slice(array.length))
+    setDisplayedOpts((array) => list.slice(array.length))
   }
 
   const Previous = () => {
@@ -45,7 +45,7 @@ const options = ({ list }) => {
               displayedOpts.map(({number, value}, index) => <Option key={index} value={value} num={number}/>)
           }
           {(displayedOpts[0].number !== 1) ? <Previous /> : null} 
-          {(displayedOpts[displayedOpts.length-1].number !== list[number].length) ? <Next /> : null} 
+          {(displayedOpts[displayedOpts.length-1].number !== list.length) ? <Next /> : null} 
       </div>
       <Others />
     </div>

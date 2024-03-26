@@ -6,17 +6,16 @@ import Indicator from "@/app/(routes)/(home)/_components/indicator"
 import Heading from "@/app/(routes)/(home)/_components/heading"
 
 const questions = () => {
-  const { number, questions, displayedOpts } = useContext(NumberContext)
-  const questionsList = questions.map(data => data.question);
-  const optionsList = questions.map(data => data.options);
+  const { number, questions, displayedOpts, originalOpts } = useContext(NumberContext)
+  const question = questions.filter(data => data.id === number+1)[0].question
 
   return (
     <div className="space-y-2 flex-grow flex flex-col">
-        <Heading questions={questionsList}/>
+        <Heading question={question}/>
         <div>
-            <Options list={optionsList}/>
-            <div className={`${(optionsList[number].length/4 <= 1) ? 'invisible' : ''} grid place-items-center mt-4`}>
-                <Indicator number={Math.ceil(optionsList[number].length/4)} active={Math.ceil(displayedOpts[0].number/4)} dotted/>
+            <Options list={originalOpts}/>
+            <div className={`${(originalOpts.length/4 <= 1) ? 'invisible' : ''} grid place-items-center mt-4`}>
+                <Indicator number={Math.ceil(originalOpts.length/4)} active={Math.ceil(displayedOpts[0].number/4)} dotted/>
             </div>
         </div>
     </div>
