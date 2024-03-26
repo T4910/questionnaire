@@ -7,7 +7,7 @@ import SectionIndicator from "@/app/(routes)/(home)/_components/sectionIndicator
 const questionnaire = ({ questions, sections, cursor }) => {
     return (
         <Controller fetchedQuestions={questions} cursor={cursor}>
-            <div className="flex-grow bg-neutral-100 p-4 px-6 pr-7 flex flex-col justify-between">
+            <div className=" bg-neutral-100 w-2/3 p-4 px-6 pr-7 flex flex-col justify-between">
                 <Logo />
                 <SectionIndicator sections={sections}/>
                 <Quesitons />

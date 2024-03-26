@@ -1,7 +1,7 @@
 const heading = ({ question }) => {
 
     return (
-      <div className="flex-grow grid  content-start mt-5">
+      <div className="h-1/4 grid content-start">
           <h1 className="text-3xl font-medium w-[46rem] my-auto">
             {question}
           </h1>

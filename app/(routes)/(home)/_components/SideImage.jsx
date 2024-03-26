@@ -14,7 +14,7 @@ const imageStyles = {
 const SideImage = () => {
   return (
     <div 
-        className="bg-violet-300 w-96"
+        className="bg-violet-300 w-1/3"
         style={imageStyles}    
     >
         

@@ -10,9 +10,9 @@ const questions = () => {
   const question = questions.filter(data => data.id === number+1)[0].question
 
   return (
-    <div className="space-y-2 flex-grow flex flex-col">
+    <div className="space-y-2 h-4/5 flex flex-col">
         <Heading question={question}/>
-        <div>
+        <div className="flex-grow flex flex-col">
             <Options list={originalOpts}/>
             <div className={`${(originalOpts.length/4 <= 1) ? 'invisible' : ''} grid place-items-center mt-4`}>
                 <Indicator number={Math.ceil(originalOpts.length/4)} active={Math.ceil(displayedOpts[0].number/4)} dotted/>

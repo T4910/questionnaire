@@ -42,8 +42,8 @@ const options = ({ list }) => {
   }
 
   return (
-    <div className="bg-neutral-700 rounded-sm h-[19rem] flex flex-col p-4 space-y-2 relative text-neutral-100">
-      <div className="flex justify-start space-x-6 w-[50rem] relative flex-grow">
+    <div className="bg-neutral-700 rounded-sm flex-grow flex flex-col p-4 space-y-2 relative text-neutral-100">
+      <div className="flex justify-start space-x-6 w-full relative flex-grow">
           {
               displayedOpts.map(({number, value}, index) => <Option key={index} value={value} num={number}/>)
           }
@@ -57,7 +57,7 @@ const options = ({ list }) => {
 
 const Others = () => {
   return (
-    <div className="h-8 flex items-end space-x-2">
+    <div className="h-[10%] flex items-end space-x-2">
       <span>Others (Please specify): </span>
       <input type="text" placeholder="Type your answer here..." className="placeholder:py-1 inline px-1 flex-grow text-sm bg-transparent border-b border-slate-300 focus-visible:outline-none"/>
     </div>

@@ -9,7 +9,7 @@ const indicator = ({ number, dotted, active, increment }) => {
               <div 
                 key={index} 
                 className={cn(
-                  'w-20 h-1 bg-neutral-400 rounded-sm',
+                  'w-1/12 h-1 bg-neutral-400 rounded-sm',
                   dotted ? 'size-2 rounded-full' : null,
                   (increment ? index+1 <= active : index === active-1) ? 'bg-neutral-700' : null
                 )}></div>
