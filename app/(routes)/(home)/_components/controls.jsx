@@ -76,7 +76,7 @@ const controls = ({ totalQuestions }) => {
       return (
         <Button 
           onClick={nextQuestions}
-          disabled={(number+1 === questions.length)}
+          disabled={(number+1 === questions.length)} // keeping it on controlled question instead totalQuestions to disable if no questions available
           className="py-1 bg-neutral-700 text-white rounded-sm"
         >
           Continue

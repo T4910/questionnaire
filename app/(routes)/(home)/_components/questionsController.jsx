@@ -10,7 +10,7 @@ export const Controller = ({ children, fetchedQuestions, cursor }) => {
 
     const [ questions, setQuestions ] = useState(fetchedQuestions);
     
-    const optionsArray = questions.filter(data => cursor === data.id)[0].options;
+    const optionsArray = questions.filter(data => data.id === number+1)[0].options;
     
     const [displayedOpts, setDisplayedOpts] = useState(optionsArray.slice(0,4));
     

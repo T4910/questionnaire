@@ -8,7 +8,10 @@ import { useEffect, useContext } from "react";
 const options = ({ list }) => {
   const { number, displayedOpts, setDisplayedOpts } = useContext(NumberContext);
 
-  useEffect(() => setDisplayedOpts(list.slice(0,4)), [number]);
+  
+  useEffect(() => {
+    setDisplayedOpts(list.slice(0,4))
+  }, [number]);
 
   function prevOptions(){
     setDisplayedOpts(() => list.slice(0,4))

@@ -14,7 +14,7 @@ const sectionIndicator = ({ sections }) => {
     <>
       <Indicator number={numberOfSections} active={activeSectionNumber} increment/>
       <div>
-        <span className="text-xs">{activeSectionName}: {number+1} of {sections.data.length}. number: {number}</span>
+        <span className="text-xs">Question: {number+1} of {sections.data.length} ({activeSectionName})</span>
       </div>
     </>
   );
