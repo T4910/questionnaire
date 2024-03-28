@@ -4,7 +4,6 @@ const images = [
   '/manlookingatcomputer.jpeg'
 ]
 
-
 const imageStyles = {
     backgroundImage: `url(${images[2]})`,
     backgroundSize: 'cover',
@@ -14,11 +13,9 @@ const imageStyles = {
 const SideImage = () => {
   return (
     <div 
-        className="bg-violet-300 w-1/3"
+        className="bg-violet-300 lg:w-1/3 hidden lg:block w-0"
         style={imageStyles}    
-    >
-        
-    </div>
+    ></div>
   )
 }
 export default SideImage

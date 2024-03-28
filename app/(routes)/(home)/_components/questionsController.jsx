@@ -7,6 +7,7 @@ export const NumberContext = createContext();
 export const Controller = ({ children, fetchedQuestions, cursor }) => {
     const [number, setNumber] = useState(cursor-1);
     const router = useRouter();
+    const fetchingOffset = 5;
 
     const [ questions, setQuestions ] = useState(fetchedQuestions);
     
@@ -20,7 +21,8 @@ export const Controller = ({ children, fetchedQuestions, cursor }) => {
         <NumberContext.Provider value={{
             number, 
             questions, 
-            originalOpts: optionsArray, 
+            originalOpts: optionsArray,
+            offset: fetchingOffset, 
             displayedOpts, 
             setDisplayedOpts, 
             setNumber, 

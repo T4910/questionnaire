@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 
 const indicator = ({ number, dotted, active, increment }) => {
-
+console.log(dotted, 7)
   return (
       <div className={cn("space-y-1", dotted ? null : 'mt-5')}>
         <div className="flex space-x-3">
@@ -9,8 +9,8 @@ const indicator = ({ number, dotted, active, increment }) => {
               <div 
                 key={index} 
                 className={cn(
-                  'w-1/12 h-1 bg-neutral-400 rounded-sm',
-                  dotted ? 'size-2 rounded-full' : null,
+                  'w-1/6 md:w-1/12 h-1 bg-neutral-400 rounded-sm',
+                  dotted ? '!size-2 rounded-full' : null,
                   (increment ? index+1 <= active : index === active-1) ? 'bg-neutral-700' : null
                 )}></div>
             )}

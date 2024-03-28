@@ -3,13 +3,10 @@ import { useContext } from "react"
 import { NumberContext } from "@/app/(routes)/(home)/_components/questionsController"
 import { Button } from "@/components/ui/button"
 import { getNextQuestions, getPreviousQuestions } from "@/app/actions/getQuestions"
-import { useRouter } from "next/navigation"
 
 
 const controls = ({ totalQuestions }) => {
-    const router = useRouter();
-    const offset = 5;
-    const { number, questions, setNumber, displayedOpts, setQuestions } = useContext(NumberContext);
+    const { number, questions, setNumber, setQuestions, offset } = useContext(NumberContext);
 
     async function previousQuestions(){
       // move to previous questions
@@ -35,6 +32,8 @@ const controls = ({ totalQuestions }) => {
     }
 
     async function nextQuestions(){
+      if(number+1 === questions.length) return
+
       // move to next questions
       setNumber((num) => num+1);
 
@@ -96,7 +95,7 @@ const controls = ({ totalQuestions }) => {
     }
 
     return (
-      <div className="flex justify-end space-x-5">
+      <div className="flex justify-end space-x-5 items-end flex-grow lg:flex-grow-0">
           {(number > 0) ? <Back /> : null}
           {(number+1 < totalQuestions) ? <Continue /> : <Submit />}
       </div>
