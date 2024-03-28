@@ -11,7 +11,7 @@ const sectionIndicator = ({ sections }) => {
   const numberOfSections = sections.names.length;
 
   return (
-    <div className="mb-5">
+    <div className="mb-2 lg:mb-5">
       <Indicator number={numberOfSections} active={activeSectionNumber} increment/>
       <div>
         <span className="text-xs">Question: {number+1} of {sections.data.length} ({activeSectionName})</span>

@@ -47,12 +47,13 @@ const option = ({ value, num }) => {
       nextQuestions()
     }
 
+    // h-[calc((100%-(0.25rem*4))/5)]
     return (
       <Card 
         onClick={selectOption}
-        className="w-[calc((100%-(0.25rem))/2)] h-[calc((100%-(0.25rem))/2)]  box-border rounded-sm lg:h-full lg:w-[calc((100%-(1.5rem*3))/4)] p-1.5 md:p-4 space-y-1 lg:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
+        className="flex flex-row lg:flex-col w-full box-border rounded-sm h-12 text-xs md:text-base md:h-full md:w-[calc((100%-(1.5rem*3))/4)] p-1.5 px-3 md:p-4 space-x-3 md:space-x-0 items-center md:items-start md:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
         <CardHeader className="bg-neutral-100 p-0 size-7 grid place-items-center text-black rounded-sm group-hover:bg-black">{letter[num-1]}</CardHeader>
-        <CardContent className="p-0">{value}</CardContent>
+        <CardContent className="p-0 w-11/12">{value}</CardContent>
       </Card>
     )
 }

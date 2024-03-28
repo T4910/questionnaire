@@ -5,9 +5,8 @@ import { Button } from "@/components/ui/button"
 import { NumberContext } from "@/app/(routes)/(home)/_components/questionsController"
 import { useEffect, useContext } from "react";
 
-const options = ({ list }) => {
-  const { number, displayedOpts, setDisplayedOpts } = useContext(NumberContext);
-
+const options = ({ list, isMobile }) => {
+  const { number, displayedOpts, originalOpts, setDisplayedOpts } = useContext(NumberContext);
   
   useEffect(() => {
     setDisplayedOpts(list.slice(0,4))
@@ -42,11 +41,11 @@ const options = ({ list }) => {
   }
 
   return (
-    <div className="bg-neutral-700 rounded-sm h-full lg:flex-grow flex flex-col p-4 space-y-3 lg:space-y-4 relative text-neutral-100 text-sm">
-      <div className="flex justify-start gap-1 lg:gap-0 flex-wrap md:flex-nowrap md:space-x-6 size-full relative flex-grow overflow-auto lg:overflow-visible">
-          {displayedOpts.map(({number, value}, index) => <Option key={index} value={value} num={number}/>)}
-          {(displayedOpts[0].number !== 1) ? <Previous /> : null} 
-          {(displayedOpts[displayedOpts.length-1].number !== list.length) ? <Next /> : null} 
+    <div className="bg-neutral-700  rounded-sm h-fit lg:h-full lg:flex-grow flex flex-col p-4 space-y-3 lg:space-y-4 relative text-neutral-100 text-sm">
+      <div className="flex justify-start gap-2 lg:gap-0 flex-wrap md:flex-nowrap md:space-x-6 h-fit lg:size-full relative lg:flex-grow overflow-auto lg:overflow-visible">
+          {(isMobile ? originalOpts : displayedOpts).map(({number, value}, index) => <Option key={index} value={value} num={number}/>)}
+          {(displayedOpts[0].number !== 1 && !isMobile) ? <Previous /> : null} 
+          {(displayedOpts[displayedOpts.length-1].number !== list.length && !isMobile) ? <Next /> : null} 
       </div>
       <Others />
     </div>

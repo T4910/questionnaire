@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 
 const indicator = ({ number, dotted, active, increment }) => {
-console.log(dotted, 7)
   return (
       <div className={cn("space-y-1", dotted ? null : 'mt-5')}>
         <div className="flex space-x-3">
