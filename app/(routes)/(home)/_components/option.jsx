@@ -10,7 +10,7 @@ import { NumberContext } from "@/app/(routes)/(home)/_components/questionsContro
 
 
 
-const option = ({ value, num }) => {
+const option = ({ value, num, reference }) => {
     const letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const { number, questions, setNumber, setQuestions, offset } = useContext(NumberContext);
 
@@ -51,9 +51,11 @@ const option = ({ value, num }) => {
     return (
       <Card 
         onClick={selectOption}
-        className="flex flex-row lg:flex-col w-full box-border rounded-sm h-12 text-xs md:text-base md:h-full md:w-[calc((100%-(1.5rem*3))/4)] p-1.5 px-3 md:p-4 space-x-3 md:space-x-0 items-center md:items-start md:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
+        ref={reference ?? null}
+        // try to change the h-[3.5rem] to a percentage
+        className="flex flex-row lg:flex-col w-full box-border rounded-sm h-[3.5rem] text-xs md:text-base md:h-full md:w-[calc((100%-(1.5rem*3))/4)] p-1.5 px-3 md:p-4 space-x-3 md:space-x-0 items-center md:items-start md:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
         <CardHeader className="bg-neutral-100 p-0 size-7 grid place-items-center text-black rounded-sm group-hover:bg-black">{letter[num-1]}</CardHeader>
-        <CardContent className="p-0 w-11/12">{value}</CardContent>
+        <CardContent className="p-0 w-full">{value}</CardContent>
       </Card>
     )
 }

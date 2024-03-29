@@ -14,6 +14,7 @@ export const Controller = ({ children, fetchedQuestions, cursor }) => {
     const optionsArray = questions.filter(data => data.id === number+1)[0].options;
     
     const [displayedOpts, setDisplayedOpts] = useState(optionsArray.slice(0,4));
+    const [ mobileOptionListState, setMobileOptionListState ] = useState(false) // false - 1st half completly showing, true - means last half from the bottom up is showing
     
     useEffect(() => router.replace(`?q=${number+1}`), [number]); // adds a parameter to url
   
@@ -24,6 +25,8 @@ export const Controller = ({ children, fetchedQuestions, cursor }) => {
             originalOpts: optionsArray,
             offset: fetchingOffset, 
             displayedOpts, 
+            listOrientation: mobileOptionListState, 
+            setListOrientation: setMobileOptionListState,
             setDisplayedOpts, 
             setNumber, 
             setQuestions
