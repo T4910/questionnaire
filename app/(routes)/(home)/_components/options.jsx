@@ -12,7 +12,7 @@ const options = ({ list, isMobile }) => {
   }, [number]);
 
   return (
-    <div className="bg-neutral-700 rounded-sm h-fit lg:flex-grow flex flex-col p-4 space-y-3 lg:space-y-4 relative text-neutral-100 text-sm">
+    <div className="bg-neutral-700 rounded-sm h-full lg:flex-grow flex flex-col p-4 space-y-3 lg:space-y-4 relative text-neutral-100 text-sm">
       <OptionList 
           displayedOpts={displayedOpts} 
           setDisplayedOpts={setDisplayedOpts}
@@ -27,7 +27,7 @@ const options = ({ list, isMobile }) => {
 
 const Others = () => {
   return (
-    <div className="h-fit flex flex-col md:flex-row lg:items-end space-y-1 lg:text-base lg:space-x-2">
+    <div className="h-fit flex flex-col lg:flex-row lg:items-end space-y-1 md:text-base lg:space-x-2">
       <span className="block lg:inline">Others (Please specify): </span>
       <input type="text" placeholder="Type your answer here..." className="placeholder:py-1 inline lg:px-1 flex-grow text-sm bg-transparent border-b border-slate-300 focus-visible:outline-none"/>
     </div>

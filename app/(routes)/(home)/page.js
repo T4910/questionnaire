@@ -1,16 +1,42 @@
-// *question heading
-// *options component
-// *|-> Slider for other options
-// *|-> Styling for just 3 or less options
-// *Back and forward button
-// *section indicator
-// *image for desktop
-// *textarea for users to specify answer.
-// *pagination fetching of questions
-// storing initial state in webiste link query
-// adding route state managment system
-// add cookie accept or reject component
-// add cookie managments to state system
+// STARTING FEATURES
+// |-> add cookie accept or reject component
+// |-> add cookie managments to state system
+// *|-> question heading
+// *|-> options component
+// *|-> |-> Slider for other options
+// *|-> |-> Styling for just 3 or less options
+// *|-> Back and forward button
+// *|-> section indicator
+// *|-> image for desktop
+// *|-> textarea for users to specify answer.
+// *|-> pagination fetching of questions
+// *|-> storing initial state in webiste link query
+// *|-> adding url state managment system
+
+// BUGS
+// *|-> Question/Options synchronization
+// *|-> Option section button toggling problem
+// *|-> Fix styling and responsivness for desktop devices
+
+// ERROR HANDLING
+// |-> Add loading component to options component if questions haven't fetched (use skeleton -> shadcn-ui)
+// *|-> Ensure proper security of urls 
+
+// FORM Submission
+// |-> Ability to select options & add checkbox component to option when selected
+// |-> Automaticallly moves to the next page when option selected
+// |-> Situation where user reselects options, disable automatically move to next page
+// |-> Save all current form state such that if I go back, I see all the options selected and option section still showing
+// |-> Periodically or progressively send to database 
+// |-> Mute, disable & remove state in options if user writes in `Other (please specify):`
+// |-> Add a tooltip for in case user wants to select options and still has `Other (please specify):` filled
+ 
+// ANIMATION
+// |-> inner options slider
+// |-> outer options slider
+// |-> Fade in and out for question heading
+// |-> Confirmation animation when option is selected (like typeform)
+// |-> Animation for section indicator
 
 // ADMIN
 // |-> csv downloader from database
@@ -27,20 +53,23 @@ import SideImage from "@/app/(routes)/(home)/_components/SideImage";
 import { db } from "@/lib/db"
 
 export default async function Home({ searchParams }) {
-  // validation check
-  let cursor = searchParams?.q ?? 1;
-  cursor = parseInt(cursor);
-  if(isNaN(cursor)) cursor = 1;
-
-  const questions = await fetchInitialQuestions(10, cursor);
-  
   const sections = {
     names: await fetchSectionNames(),
     data: await fetchSectionsData()
   }
+
+  // validation check
+  let cursor = searchParams?.q ?? 1;
+  const numberOfQuestions = sections.data.length;
+
+  cursor = parseInt(cursor);
+  if(isNaN(cursor) || cursor < 1) cursor = 1;
+  if(cursor > numberOfQuestions) cursor = numberOfQuestions;
+  
+  const questions = await fetchInitialQuestions(10, cursor);
   
   return (
-    <div className="flex size-full h-screen bg-red-400">
+    <div className="flex w-[100dvw] h-[100dvh] lg:w-screen lg:h-screen bg-red-400">
       <SideImage />
       <Questionnaire 
         questions={questions} 

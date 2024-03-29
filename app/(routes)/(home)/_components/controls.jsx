@@ -95,7 +95,7 @@ const controls = ({ totalQuestions }) => {
     }
 
     return (
-      <div className="flex justify-end space-x-5 items-end flex-grow lg:flex-grow-0">
+      <div className="flex justify-end mt-1 md:mt-3 space-x-5 items-end flex-grow lg:flex-grow-0">
           {(number > 0) ? <Back /> : null}
           {(number+1 < totalQuestions) ? <Continue /> : <Submit />}
       </div>

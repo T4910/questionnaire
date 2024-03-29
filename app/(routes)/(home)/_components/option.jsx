@@ -52,8 +52,7 @@ const option = ({ value, num, reference }) => {
       <Card 
         onClick={selectOption}
         ref={reference ?? null}
-        // try to change the h-[3.5rem] to a percentage
-        className="flex flex-row lg:flex-col w-full box-border rounded-sm h-[3.5rem] text-xs md:text-base md:h-full md:w-[calc((100%-(1.5rem*3))/4)] p-1.5 px-3 md:p-4 space-x-3 md:space-x-0 items-center md:items-start md:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
+        className="flex flex-row lg:flex-col w-full box-border rounded-sm h-[calc((100%-(0.375rem*4))/4)] md:h-[calc((100%-(0.375rem*4))/5)] text-xs md:text-base lg:h-full lg:w-[calc((100%-(1.5rem*3))/4)] p-1.5 px-3 lg:p-4 space-x-3 lg:space-x-0 items-center lg:items-start lg:space-y-4 border-1 text-white bg-white bg-opacity-20 group-hover:bg-black">
         <CardHeader className="bg-neutral-100 p-0 size-7 grid place-items-center text-black rounded-sm group-hover:bg-black">{letter[num-1]}</CardHeader>
         <CardContent className="p-0 w-full">{value}</CardContent>
       </Card>
